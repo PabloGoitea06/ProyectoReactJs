@@ -1,16 +1,19 @@
-import { Divider } from 'antd';
 import React, { useEffect, useState } from 'react';
 import productosA from '../data/accesorios.json';
-import ItemList from './ItemList';
+import productosI from '../data/indumentaria.json';
 import ItemDetail from './ItemDetail';
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
-    
+
     const [detail, setDetail] = useState({})
+
+    const {id} = useParams()
+
     useEffect(()=> {
         const promesa = new Promise((acc, rej) => {
             setTimeout(() => {
-              acc({productosA});
+              acc(productosA);
             }, 3000);
           });
         
@@ -22,7 +25,7 @@ const ItemDetailContainer = () => {
               alert(err.message);
             });
       
-        }, [])
+        }, [id])
 
         console.log(detail);
 
