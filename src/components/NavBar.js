@@ -2,7 +2,7 @@ import React from 'react';
 import CartIcon from './CartWidget';
 import Brand from '../components/Brand';
 import Item from 'antd/es/list/Item';
-import ItemListContainer from './ItemListContainer';
+import {Link} from "react-router-dom";
 
 const styles = {
     header:{
@@ -15,7 +15,17 @@ const styles = {
       textDecoration: 'none',
       display:'flex',
       justifyContent:'space-between'
-    }
+    },
+    
+        ul:{
+            listStyle:'none',
+            display:'flex',
+            justifyContent:'space-between',
+            textDecoration:'none',
+            width:'600px'
+    
+        }
+    
   }
 const NavBar = (props) => {
     return (
@@ -25,16 +35,17 @@ const NavBar = (props) => {
             </div>
 
             <nav className="containerItemList"> 
-        <ItemListContainer 
-        Item1 = "Home"
-        Item2 = "Products"
-        Item3 = "About Us"
-        />
+            <ul style={styles.ul}>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/category/Accesories'>Accesories</Link></li>
+            <li><Link to='/category/Indumentary'>Indumentary</Link></li>
+        </ul>
             </nav>
 
             <div className="containerCart">
             <CartIcon height={40} width={40} fill={props.fill}/>
         </div>
+
 
         </header>
     )
