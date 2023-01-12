@@ -45,7 +45,7 @@ const NavBar = (props) => {
             <div className="containerCart">
             <CartIcon height={40} width={40} fill={props.fill}/>
         </div>
-
+        
 
         </header>
     )
